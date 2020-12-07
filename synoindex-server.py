@@ -5,7 +5,7 @@ from urllib.parse import urlparse, parse_qs
 
 
 config = {
-    'bindAddr': 'localhost',
+    'bindAddr': '0.0.0.0',
     'bindPort': 50000
 }
 
@@ -24,7 +24,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             if args and path:
                 msg = indexing(args[0], path[0])
             else:
-                msg = 'Usage : {0}?args=[options: -a -A -R -D ...]&path=[file-path]'.format(self.address_string()+self.path)
+                msg = 'Usage : {0}?args=[options: -a -A -R -D ...]&path=[file-path]'.format(self.address_string())
         else:
             msg = 'Synoindex response OK to clients!'
 
